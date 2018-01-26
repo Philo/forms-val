@@ -1,0 +1,123 @@
+﻿@model HomeModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ul>
+    <li>
+        <a href="https://jqueryvalidation.org/documentation/">https://jqueryvalidation.org/documentation/</a>
+    </li>
+    <li>
+        <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation">https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation</a>
+    </li>
+</ul>
+
+<form class="form-horizontal" method="POST">
+    <div class="panel panel-default">
+        <div class="panel-heading">String Based</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label asp-for="RequiredString"></label>
+                <input asp-for="RequiredString" class="form-control" />
+                <span asp-validation-for="RequiredString" style="color: red" />
+            </div>
+            <div class="form-group">
+                <label asp-for="StringMinMaxLength"></label>
+                <input asp-for="StringMinMaxLength" class="form-control" />
+                <span asp-validation-for="StringMinMaxLength" style="color: red" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmailAddress"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" style="color: red" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegularExpression"></label>
+                <input asp-for="RegularExpression" class="form-control" />
+                <span asp-validation-for="RegularExpression" style="color: red" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CreditCard"></label>
+                <input asp-for="CreditCard" class="form-control" />
+                <span asp-validation-for="CreditCard" style="color: red" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Url"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" style="color: red" />
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Remote"></label>
+                <input asp-for="Remote" class="form-control" />
+                <span asp-validation-for="Remote" style="color: red" />
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Number Based</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label asp-for="OptionalRangeNumeric"></label>
+                <input asp-for="OptionalRangeNumeric" class="form-control" />
+                <span asp-validation-for="OptionalRangeNumeric" style="color: red" />
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredNumeric"></label>
+                <input asp-for="RequiredNumeric" class="form-control" />
+                <span asp-validation-for="RequiredNumeric" style="color: red" />
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Date or Time Based</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label asp-for="Date"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" style="color: red" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTime"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" style="color: red" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Time"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" style="color: red" />
+            </div>        
+            <div class="form-group">
+                <label asp-for="Currency"></label>
+                <input asp-for="Currency" class="form-control" />
+                <span asp-validation-for="Currency" style="color: red" />
+            </div>                    
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Others</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label asp-for="Upload"></label>
+                <input asp-for="Upload" class="form-control" />
+                <span asp-validation-for="Upload" style="color: red" />
+            </div>        
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" />
+    </div>    
+</form>
+
+@section Scripts 
+{
+    @Html.Partial("_ValidationScriptsPartial")
+}
