@@ -74,9 +74,14 @@ namespace forms_val.Models
 
         [DataType(DataType.Text)]
         [Required]
-        [Remote("IsUnique", "Home")]
-        [Display(Name = "Remote validation (type \"valid\" to pass)")]
+        [Remote("IsUnique", "Home", HttpMethod = "POST", AdditionalFields = "EmailAddress")]
+        [Display(Name = "Remote validation (Is email that ends with \"@stormid.com\")")]
         public string Remote {get;set;}
+
+        public string Password { get; set; }
+
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
     }
 
 }

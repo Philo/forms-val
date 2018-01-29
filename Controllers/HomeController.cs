@@ -18,9 +18,13 @@ namespace forms_val.Controllers
             return View("View", model);
         }
 
-        public IActionResult IsUnique(string remote) 
+        public IActionResult IsUnique(string remote, string emailAddress)
         {
-            return Json(remote?.Equals("valid") ?? false);
+            if (remote?.EndsWith("@stormid.com") ?? false)
+            {
+                return Json(true);
+            }
+            return Json("The field must end with '@stormid.com'");
         }
 
         public IActionResult Fluent()

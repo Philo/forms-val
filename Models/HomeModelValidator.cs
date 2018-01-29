@@ -19,7 +19,8 @@ namespace forms_val.Models
             RuleFor(r => r.Url);
             RuleFor(r => r.Currency);
             RuleFor(r => r.Upload).NotEmpty();
-            RuleFor(r => r.Remote);
+            RuleFor(r => r.Remote).NotEmpty();
+            RuleFor(r => r.ConfirmPassword).Equal(r => r.Password);
         }
     }
 }

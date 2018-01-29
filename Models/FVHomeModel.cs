@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using FluentValidation.Attributes;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace forms_val.Models
@@ -67,9 +68,14 @@ namespace forms_val.Models
         public IFormFile Upload {get;set;}
 
         [DataType(DataType.Text)]
-        //[Required]
-        //[Remote("IsUnique", "Home")]
-        [Display(Name = "Remote validation (type \"valid\" to pass)")]
+        [Remote("IsUnique", "Home", HttpMethod = "POST", AdditionalFields = "EmailAddress")]
+        [Display(Name = "Remote validation (Is email that ends with \"@stormid.com\")")]
         public string Remote {get;set;}
+
+
+        public string Password { get; set; }
+
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
     }
 }

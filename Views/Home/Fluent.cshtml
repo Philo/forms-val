@@ -56,7 +56,7 @@
                 <input asp-for="Url" class="form-control" />
                 <span asp-validation-for="Url" style="color: red" />
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="Remote"></label>
                 <input asp-for="Remote" class="form-control" />
@@ -98,12 +98,28 @@
                 <label asp-for="Time"></label>
                 <input asp-for="Time" class="form-control" />
                 <span asp-validation-for="Time" style="color: red" />
-            </div>        
+            </div>
             <div class="form-group">
                 <label asp-for="Currency"></label>
                 <input asp-for="Currency" class="form-control" />
                 <span asp-validation-for="Currency" style="color: red" />
-            </div>                    
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Password (Property Comparison)</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" style="color: red" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" style="color: red" />
+            </div>
         </div>
     </div>
 
@@ -114,12 +130,12 @@
                 <label asp-for="Upload"></label>
                 <input asp-for="Upload" class="form-control" />
                 <span asp-validation-for="Upload" style="color: red" />
-            </div>        
+            </div>
         </div>
     </div>
     <div class="form-group">
         <input type="submit" value="Submit" />
-    </div>    
+    </div>
 </form>
 
 @section Scripts 
