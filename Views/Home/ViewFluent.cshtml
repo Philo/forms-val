@@ -1,0 +1,21 @@
+﻿@model FVHomeModel
+
+@section Styles
+{
+    <style>
+        .display-label {
+            
+            font-weight: 400;
+        }
+        .display-field {
+            margin-left: 10px;
+            margin-bottom: 25px;
+        }
+    </style>
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@Html.DisplayForModel()

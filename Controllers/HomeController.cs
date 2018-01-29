@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using forms_val.Models;
 
@@ -24,6 +21,18 @@ namespace forms_val.Controllers
         public IActionResult IsUnique(string remote) 
         {
             return Json(remote?.Equals("valid") ?? false);
+        }
+
+        public IActionResult Fluent()
+        {
+            var model = new FVHomeModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Fluent(FVHomeModel model)
+        {
+            return View("ViewFluent", model);
         }
 
         public IActionResult Error()

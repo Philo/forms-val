@@ -1,51 +1,45 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using FluentValidation.AspNetCore;
-using FluentValidation.Internal;
-using FluentValidation.Validators;
+using FluentValidation.Attributes;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.DataAnnotations.Internal;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace forms_val.Models
 {
-    public class HomeModel 
+    [Validator(typeof(HomeModelValidator))]
+    public class FVHomeModel 
     {
-        [Required]
+        //[Required]
         [Display(Name = "Required String")]
         public string RequiredString {get;set;}
         
-        [StringLength(10, MinimumLength = 5)]
+        //[StringLength(10, MinimumLength = 5)]
         [Display(Name = "String with min and max length")]
         public string StringMinMaxLength {get;set;}
 
         [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        //[EmailAddress]
         [Display(Name = "Email address")]
         public string EmailAddress {get;set;}
 
         [DataType(DataType.Text)]
-        [RegularExpression("[a-z]+")]
+        //[RegularExpression("[a-z]+")]
         [Display(Name = "Regular Expression")]
         public string RegularExpression {get;set;}
 
         [DataType(DataType.CreditCard)]
-        [CreditCard]
+        //[CreditCard]
         [Display(Name = "Credit card (I've never used this)")]
         public string CreditCard {get;set;}
 
-        [Range(5, 10)]
+        //[Range(5, 10)]
         [Display(Name = "Optional Range Numeric")]
         public int? OptionalRangeNumeric {get;set;}
         
-        [Required]
+        //[Required]
         [Display(Name = "Required Numeric")]
         public int RequiredNumeric {get;set;}
-
-
+        
         [DataType(DataType.Date)]
         [Display(Name = "Date Only")]
         public DateTime Date {get;set;}
@@ -59,7 +53,7 @@ namespace forms_val.Models
         public TimeSpan Time {get;set;}        
 
         [DataType(DataType.Url)]
-        [CreditCard]
+        //[CreditCard]
         [Display(Name = "Url")]
         public Uri Url {get;set;}
 
@@ -69,14 +63,13 @@ namespace forms_val.Models
 
         [DataType(DataType.Upload)]
         [Display(Name = "Upload")]
-        [Required]
+        //[Required]
         public IFormFile Upload {get;set;}
 
         [DataType(DataType.Text)]
-        [Required]
-        [Remote("IsUnique", "Home")]
+        //[Required]
+        //[Remote("IsUnique", "Home")]
         [Display(Name = "Remote validation (type \"valid\" to pass)")]
         public string Remote {get;set;}
     }
-
 }
